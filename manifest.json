@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "JSON Explorer",
+  "version": "1.0",
+  "description": "Format and query JSON responses!",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/jsonpath.min.js", "js/defiant.min.js", "js/app.js"],
+      "css": ["css/style.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions":["*://*/*", "<all_urls>"]
+}

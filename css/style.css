@@ -1,0 +1,59 @@
+#json-explorer select, #json-explorer input {
+    outline: none;
+    font-size: 16px;
+    height: 42px;
+}
+
+#json-explorer .container {
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+#json-explorer .header {
+    position: relative;
+}
+
+#json-explorer .header.error input {
+    box-shadow: 0 0 3px red;
+}
+
+#json-explorer .header input {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    border: 1px solid #dfe1e5;
+    padding-left: 160px;
+    width: 100%;
+}
+
+#json-explorer .header select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    -webkit-border-radius: 5px 0;
+    -moz-border-radius: 5px 0;
+    border-radius: 5px 0 0 5px;
+
+    border: 1px solid #dfe1e5;
+    width: 150px;
+
+    position: absolute;
+    padding-left: 15px;
+}
+
+#json-explorer .code pre {
+    background-color: #f7f7f9;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* JSON HIGHLIGHTER CSS */
+#json-explorer .code pre .string { color: green; }
+#json-explorer .code pre .number { color: darkorange; }
+#json-explorer .code pre .boolean { color: blue; }
+#json-explorer .code pre .null { color: magenta; }
+#json-explorer .code pre .key { color: red; }
