@@ -4,14 +4,10 @@ const context = {
   engine: 'jsonpath',
   engines: {
     jsonpath: function (query, json) {
-      if (!query.trim()) return json;
-
-      return jsonpath.query(json, query);
+      return query.trim() ? jsonpath.query(json, query) : json;
     },
     xpath: function (query, json) {
-      if (!query.trim()) return json;
-
-      return defiant.search(json, query);
+      return query.trim() ? defiant.search(json, query) : json;
     }
   },
   json: {},
@@ -61,7 +57,7 @@ function bootstrap() {
   document.querySelector('#json-explorer select[name=engine]').addEventListener('change', function () {
     if (!context.engines.hasOwnProperty(this.value)) return;
 
-    context.engine = this.value
+    context.engine = this.value;
     search(context.query, context.json);
   });
 
@@ -72,7 +68,7 @@ function bootstrap() {
 
     clearTimeout(context.ticker);
     context.ticker = setTimeout(function () { search(context.query, context.json); }, context.interval);
-  }
+  };
 
   document.querySelector('#json-explorer input[name=query]').addEventListener('keyup', changeHandler);
   document.querySelector('#json-explorer input[name=query]').addEventListener('change', changeHandler);
@@ -81,7 +77,7 @@ function bootstrap() {
 function _highlight(json) {
   json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-    var cls = 'number';
+    let cls = 'number';
     if (/^"/.test(match)) {
       if (/:$/.test(match)) {
         cls = 'key';

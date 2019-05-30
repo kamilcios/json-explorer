@@ -3,6 +3,11 @@
   "name": "JSON Explorer",
   "version": "1.0",
   "description": "Format and query JSON responses!",
+  "icons": {
+    "16": "media/icon_16.png",
+    "48": "media/icon_48.png",
+    "128": "media/icon_128.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
